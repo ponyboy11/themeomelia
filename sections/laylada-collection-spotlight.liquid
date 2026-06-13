@@ -1,0 +1,54 @@
+<section class="laylada-section">
+  <div class="laylada-spotlight">
+    <div class="laylada-container">
+      <div class="laylada-grid laylada-grid--2">
+        <div class="laylada-media" aria-hidden="true"></div>
+        <div>
+          <p class="laylada-eyebrow">Launch focus</p>
+          <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+          <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+          <div class="laylada-grid laylada-grid--2 laylada-mt">
+            <div class="laylada-card">
+              <div class="laylada-card__body">
+                <h3 class="laylada-card__title">Málaga Collection</h3>
+                <p class="laylada-card__text">Lightweight chiffon summer fabrics, soft resort colours, and relaxed luxury for warm-weather dressing.</p>
+              </div>
+            </div>
+            <div class="laylada-card">
+              <div class="laylada-card__body">
+                <h3 class="laylada-card__title">Dubai Collection</h3>
+                <p class="laylada-card__text">A premium halo collection built around statement abayas, refined kimonos, and elegant occasion wear.</p>
+              </div>
+            </div>
+          </div>
+          <a class="laylada-button laylada-button--light" href="{{ routes.collections_url }}/malaga-collection">Shop Málaga Collection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada collection edit",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Summer ease, Dubai elegance"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Lead with the Málaga Collection for seasonal demand while the Dubai Collection elevates brand perception and average order value."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada collection spotlight"
+    }
+  ]
+}
+{% endschema %}

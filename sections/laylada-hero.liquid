@@ -1,0 +1,45 @@
+<section class="laylada-section">
+  <div class="laylada-hero">
+    <div class="laylada-container">
+      <div class="laylada-hero__content">
+        <p class="laylada-eyebrow">LAYLADA</p>
+        <h1 class="laylada-heading">{{ section.settings.heading }}</h1>
+        <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+        <div class="laylada-pill-list" aria-label="Featured collections">
+          <span class="laylada-pill">Dubai Collection</span>
+          <span class="laylada-pill">Málaga Collection</span>
+          <span class="laylada-pill">New Arrivals</span>
+          <span class="laylada-pill">Best Sellers</span>
+        </div>
+        <a class="laylada-button laylada-button--light" href="{{ routes.collections_url }}/new-arrivals">Shop new arrivals</a>
+        <p class="laylada-hero__note">Where modest meets modern</p>
+      </div>
+      <div class="laylada-media" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Where modest meets modern"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "At Laylada, we bridge modest wear and modern Western fashion — creating styles that are inclusive, elegant, and wearable for every woman, every season."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada hero"
+    }
+  ]
+}
+{% endschema %}

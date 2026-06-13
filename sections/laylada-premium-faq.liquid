@@ -1,0 +1,58 @@
+<section class="laylada-section">
+  <div class="laylada-container">
+    <div class="laylada-header">
+      <div>
+        <p class="laylada-eyebrow">Before you order</p>
+        <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+      </div>
+      <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="laylada-faq">
+      <details open>
+        <summary>How long does shipping take?</summary>
+        <p>Shipping takes 5–8 days across the EU.</p>
+      </details>
+      <details>
+        <summary>What is the return policy?</summary>
+        <p>Laylada offers 30-day free returns.</p>
+      </details>
+      <details>
+        <summary>How should I choose my size?</summary>
+        <p>Size up for a more modest fit, especially if you prefer extra drape, coverage, or layering space.</p>
+      </details>
+      <details>
+        <summary>Which fabrics are best for summer?</summary>
+        <p>Choose lightweight chiffon summer fabrics for breathable movement and relaxed warm-weather elegance.</p>
+      </details>
+      <details>
+        <summary>Is there a first-order discount?</summary>
+        <p>Use WELCOME15 for 15% off your first order.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada premium FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Need-to-know details"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Answer key purchase questions clearly so the customer feels confident before checkout."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada premium FAQ"
+    }
+  ]
+}
+{% endschema %}

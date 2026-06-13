@@ -1,0 +1,44 @@
+<section class="laylada-section">
+  <div class="laylada-container">
+    <div class="laylada-grid laylada-grid--2">
+      <div class="laylada-media" aria-hidden="true"></div>
+      <div>
+        <p class="laylada-eyebrow">European lifestyle · Dubai elegance</p>
+        <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+        <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+        <div class="laylada-pill-list">
+          <span class="laylada-pill">Holiday outfits</span>
+          <span class="laylada-pill">Premium cafés</span>
+          <span class="laylada-pill">Resort evenings</span>
+          <span class="laylada-pill">Occasion wear</span>
+        </div>
+        <a class="laylada-button" href="{{ routes.collections_url }}/best-sellers">Shop best sellers</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada lifestyle banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Effortless pieces for every elegant moment"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "From family gatherings and travel days to resort evenings and city cafés, Laylada creates modest fashion that feels refined without effort."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada lifestyle banner"
+    }
+  ]
+}
+{% endschema %}

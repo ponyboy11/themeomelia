@@ -1,0 +1,54 @@
+<section class="laylada-section">
+  <div class="laylada-newsletter">
+    <div class="laylada-container">
+      <div class="laylada-grid laylada-grid--2">
+        <div>
+          <p class="laylada-eyebrow">Private access</p>
+          <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+          <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+        </div>
+        <div>
+          {% form 'customer', id: 'LayladaNewsletter', class: 'laylada-form' %}
+            <input type="hidden" name="contact[tags]" value="newsletter,laylada-edit">
+            <label class="visually-hidden" for="LayladaNewsletterEmail">Email</label>
+            <input
+              id="LayladaNewsletterEmail"
+              class="laylada-input"
+              type="email"
+              name="contact[email]"
+              placeholder="Email address"
+              required
+            >
+            <button class="laylada-button laylada-button--light" type="submit">Join now</button>
+          {% endform %}
+          <p class="laylada-subheading">Use WELCOME15 for 15% off your first order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the Laylada Edit"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Be first to shop new arrivals and exclusive drops. Get 15% off your first order with code WELCOME15"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada newsletter"
+    }
+  ]
+}
+{% endschema %}

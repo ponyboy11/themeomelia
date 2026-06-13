@@ -1,0 +1,60 @@
+<section class="laylada-section">
+  <div class="laylada-container">
+    <div class="laylada-header">
+      <div>
+        <p class="laylada-eyebrow">Outfit edit</p>
+        <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+      </div>
+      <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="laylada-grid laylada-grid--3">
+      <div class="laylada-card">
+        <div class="laylada-media" aria-hidden="true"></div>
+        <div class="laylada-card__body">
+          <h3 class="laylada-card__title">The abaya</h3>
+          <p class="laylada-card__text">Begin with a refined modest base from the Dubai or Málaga collection.</p>
+        </div>
+      </div>
+      <div class="laylada-card">
+        <div class="laylada-media" aria-hidden="true"></div>
+        <div class="laylada-card__body">
+          <h3 class="laylada-card__title">The layer</h3>
+          <p class="laylada-card__text">Add a lightweight kimono or open abaya for movement, coverage, and styling depth.</p>
+        </div>
+      </div>
+      <div class="laylada-card">
+        <div class="laylada-media" aria-hidden="true"></div>
+        <div class="laylada-card__body">
+          <h3 class="laylada-card__title">The finish</h3>
+          <p class="laylada-card__text">Complete the look with accessories that make the outfit feel intentional and premium.</p>
+        </div>
+      </div>
+    </div>
+    <a class="laylada-button" href="{{ routes.collections_url }}/best-sellers">Build your look</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada complete the look",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Complete the look"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Guide customers from single-item browsing into styled 2-piece and 3-piece outfits for stronger basket value."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada complete the look"
+    }
+  ]
+}
+{% endschema %}

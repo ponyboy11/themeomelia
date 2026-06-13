@@ -1,0 +1,56 @@
+<section class="laylada-section">
+  <div class="laylada-container">
+    <div class="laylada-header">
+      <div>
+        <p class="laylada-eyebrow">Client mood</p>
+        <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+      </div>
+      <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="laylada-grid laylada-grid--3">
+      <div class="laylada-card">
+        <div class="laylada-card__body">
+          <p class="laylada-quote">“Modest, polished, and easy to style.”</p>
+          <p class="laylada-card__text">A refined wardrobe feeling for women who want contemporary modest fashion without losing softness.</p>
+        </div>
+      </div>
+      <div class="laylada-card">
+        <div class="laylada-card__body">
+          <p class="laylada-quote">“Elegant enough for dinner, relaxed enough for travel.”</p>
+          <p class="laylada-card__text">The right balance for European city breaks, Dubai-inspired evenings, and everyday confidence.</p>
+        </div>
+      </div>
+      <div class="laylada-card">
+        <div class="laylada-card__body">
+          <p class="laylada-quote">“A complete look, not just one piece.”</p>
+          <p class="laylada-card__text">Designed to help customers build outfits around abayas, kimonos, dresses, and seasonal layers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made for confidence, elegance, and ease"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Use this section for real customer reviews after launch. For now, it frames the emotional transformation Laylada is built to deliver."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada testimonials"
+    }
+  ]
+}
+{% endschema %}
