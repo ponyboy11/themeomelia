@@ -1,102 +1,42 @@
 {%- liquid
-  assign section_anchor = section.settings.section_id | default: section.id
-  assign width_class = 'laylada-section--' | append: section.settings.section_width
-  assign layout_class = 'laylada-layout--' | append: section.settings.layout_direction
-  assign alignment_class = 'laylada-align--' | append: section.settings.content_alignment
-  assign position_class = 'laylada-position--' | append: section.settings.content_position
+  assign has_mobile_media = false
+  if section.settings.mobile_video != blank or section.settings.mobile_image != blank
+    assign has_mobile_media = true
+  endif
+
+  assign has_custom_media = false
+  if has_mobile_media or section.settings.section_video != blank or section.settings.section_image != blank
+    assign has_custom_media = true
+  endif
 -%}
 
-{%- unless section.settings.hide_section -%}
-  <section
-    id="{{ section_anchor | handle }}"
-    class="laylada-section section-{{ section.id }} {{ width_class }} {{ layout_class }} {{ alignment_class }} {{ position_class }}{% unless section.settings.show_on_desktop %} laylada-hide-desktop{% endunless %}{% unless section.settings.show_on_mobile %} laylada-hide-mobile{% endunless %}"
-    aria-label="{{ section.settings.aria_label | default: section.settings.heading | escape }}"
-    style="--section-bg: {{ section.settings.color_background }}; --section-text: {{ section.settings.color_text }}; --section-heading: {{ section.settings.color_heading }}; --section-accent: {{ section.settings.color_accent }}; --section-radius: {{ section.settings.border_radius }}px; --section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --section-margin-top: {{ section.settings.margin_top }}px; --section-margin-bottom: {{ section.settings.margin_bottom }}px; --heading-size-desktop: {{ section.settings.heading_font_size_desktop }}px; --heading-size-mobile: {{ section.settings.heading_font_size_mobile }}px; --body-size: {{ section.settings.body_font_size }}px; --eyebrow-size: {{ section.settings.eyebrow_font_size }}px; --overlay-color: {{ section.settings.overlay_color }}; --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
-  >
-    <div class="laylada-container">
-    <div class="laylada-header">
-      <div class="laylada-header__content">
-        {%- if section.settings.eyebrow_text != blank -%}
-          <p class="laylada-eyebrow">{{ section.settings.eyebrow_text | escape }}</p>
+<section class="laylada-section">
+  <div class="laylada-container">
+    <div class="laylada-header"><div>{% if section.settings.eyebrow_text != blank %}<p class="laylada-eyebrow">{{ section.settings.eyebrow_text }}</p>{% endif %}{% if section.settings.heading != blank %}<h2 class="laylada-heading">{{ section.settings.heading }}</h2>{% endif %}</div>{% if section.settings.subheading != blank %}<p class="laylada-subheading">{{ section.settings.subheading }}</p>{% endif %}</div>
+    {% if has_custom_media %}<div class="laylada-section-media"><div class="laylada-media{% if has_custom_media %} laylada-media--custom{% endif %}{% if has_mobile_media %} laylada-media--has-mobile{% endif %}"{% unless has_custom_media %} aria-hidden="true"{% endunless %}>
+        {%- if has_custom_media -%}
+          {%- if section.settings.mobile_video != blank -%}
+            {{ section.settings.mobile_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '900x', class: 'laylada-media__asset laylada-media__asset--mobile' }}
+          {%- elsif section.settings.mobile_image != blank -%}
+            {{ section.settings.mobile_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 767px) 100vw, 50vw', alt: section.settings.heading, class: 'laylada-media__asset laylada-media__asset--mobile' }}
+          {%- endif -%}
+
+          {%- if section.settings.section_video != blank -%}
+            {{ section.settings.section_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '1600x', class: 'laylada-media__asset laylada-media__asset--desktop' }}
+          {%- elsif section.settings.section_image != blank -%}
+            {{ section.settings.section_image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '720, 960, 1200, 1600', sizes: '(min-width: 768px) 50vw, 100vw', alt: section.settings.heading, class: 'laylada-media__asset laylada-media__asset--desktop' }}
+          {%- endif -%}
         {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <{{ section.settings.heading_tag }} class="laylada-heading">{{ section.settings.heading | escape }}</{{ section.settings.heading_tag }}>
-        {%- endif -%}
-      </div>
-      <div class="laylada-header__copy">
-        {%- if section.settings.subheading != blank -%}
-          <p class="laylada-subheading">{{ section.settings.subheading | escape }}</p>
-        {%- endif -%}
-        {%- if section.settings.description != blank -%}
-          <div class="laylada-richtext">{{ section.settings.description }}</div>
-        {%- endif -%}
-      </div>
-    </div>
-      {%- if section.settings.section_image != blank or section.settings.section_video != blank or section.settings.mobile_image != blank or section.settings.mobile_video != blank -%}
-        <div class="laylada-section-media">
-          {% render 'laylada-media', media: section.settings, alt: section.settings.image_alt | default: section.settings.heading %}
-        </div>
-      {%- endif -%}
-      <div class="laylada-grid laylada-grid--{{ section.settings.columns_desktop }}">
-        {%- for block in section.blocks -%}
-          <article class="laylada-card" style="--card-bg: {{ block.settings.color_background }}; --card-text: {{ block.settings.color_text }}; --card-accent: {{ block.settings.color_accent }};" {{ block.shopify_attributes }}>
-            {% render 'laylada-media', media: block.settings, alt: block.settings.image_alt | default: block.settings.heading %}
-            <div class="laylada-card__body">
-              {%- if block.settings.eyebrow_text != blank -%}<p class="laylada-eyebrow">{{ block.settings.eyebrow_text | escape }}</p>{%- endif -%}
-              {%- if block.settings.heading != blank -%}<h3 class="laylada-card__title">{{ block.settings.heading | escape }}</h3>{%- endif -%}
-              {%- if block.settings.description != blank -%}<div class="laylada-card__text">{{ block.settings.description }}</div>{%- endif -%}
-              {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}<a class="laylada-button laylada-button--{{ block.settings.button_style }}" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}</a>{%- endif -%}
-            </div>
-          </article>
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-{%- endunless -%}
+      </div></div>{% endif %}
+    <div class="laylada-grid laylada-grid--3">{% for block in section.blocks %}{% if block.type == 'look_step' %}<div class="laylada-card" {{ block.shopify_attributes }}><div class="laylada-media" aria-hidden="true">{% if block.settings.step_image != blank %}{{ block.settings.step_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800', class: 'laylada-media__asset' }}{% endif %}</div><div class="laylada-card__body">{% if block.settings.title != blank %}<h3 class="laylada-card__title">{{ block.settings.title }}</h3>{% endif %}{% if block.settings.description != blank %}<p class="laylada-card__text">{{ block.settings.description }}</p>{% endif %}</div></div>{% endif %}{% endfor %}</div>
+    {% if section.settings.button_text != blank %}<a class="laylada-button" href="{{ section.settings.button_url | default: routes.collections_url }}">{{ section.settings.button_text }}</a>{% endif %}
+  </div>
+</section>
 
 {% schema %}
 {
   "name": "Laylada outfit edit",
-  "enabled_on": {
-    "templates": [
-      "*"
-    ]
-  },
   "settings": [
-    {
-      "type": "text",
-      "id": "section_id",
-      "label": "Custom section ID"
-    },
-    {
-      "type": "text",
-      "id": "aria_label",
-      "label": "ARIA label"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_section",
-      "label": "Hide section",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_on_desktop",
-      "label": "Show on desktop",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_on_mobile",
-      "label": "Show on mobile",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "eyebrow_text",
-      "label": "Eyebrow text",
-      "default": ""
-    },
     {
       "type": "text",
       "id": "heading",
@@ -104,80 +44,10 @@
       "default": "Complete the look"
     },
     {
-      "type": "select",
-      "id": "heading_tag",
-      "label": "Heading tag",
-      "default": "h2",
-      "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        }
-      ]
-    },
-    {
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Create editable outfit steps or product styling stories."
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p></p>"
-    },
-    {
-      "type": "range",
-      "id": "heading_font_size_desktop",
-      "label": "Heading size desktop",
-      "min": 28,
-      "max": 140,
-      "step": 2,
-      "unit": "px",
-      "default": 72
-    },
-    {
-      "type": "range",
-      "id": "heading_font_size_mobile",
-      "label": "Heading size mobile",
-      "min": 24,
-      "max": 88,
-      "step": 2,
-      "unit": "px",
-      "default": 44
-    },
-    {
-      "type": "range",
-      "id": "body_font_size",
-      "label": "Body text size",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "eyebrow_font_size",
-      "label": "Eyebrow size",
-      "min": 9,
-      "max": 18,
-      "step": 1,
-      "unit": "px",
-      "default": 11
+      "default": "Guide customers from single-item browsing into styled 2-piece and 3-piece outfits for stronger basket value."
     },
     {
       "type": "image_picker",
@@ -190,11 +60,6 @@
       "label": "Mobile image"
     },
     {
-      "type": "text",
-      "id": "image_alt",
-      "label": "Image alt text"
-    },
-    {
       "type": "video",
       "id": "section_video",
       "label": "Desktop video"
@@ -205,478 +70,21 @@
       "label": "Mobile video"
     },
     {
-      "type": "checkbox",
-      "id": "video_autoplay",
-      "label": "Autoplay video",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "video_loop",
-      "label": "Loop video",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "video_muted",
-      "label": "Mute video",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "media_ratio",
-      "label": "Media ratio",
-      "default": "portrait",
-      "options": [
-        {
-          "value": "portrait",
-          "label": "Portrait"
-        },
-        {
-          "value": "landscape",
-          "label": "Landscape"
-        },
-        {
-          "value": "square",
-          "label": "Square"
-        },
-        {
-          "value": "wide",
-          "label": "Wide"
-        },
-        {
-          "value": "auto",
-          "label": "Auto"
-        }
-      ]
-    },
-    {
-      "type": "color",
-      "id": "overlay_color",
-      "label": "Overlay color",
-      "default": "#3B3028"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label": "Overlay opacity",
-      "min": 0,
-      "max": 90,
-      "step": 5,
-      "unit": "%",
-      "default": 35
-    },
-    {
-      "type": "checkbox",
-      "id": "gradient_enable",
-      "label": "Enable gradient overlay",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "gradient_direction",
-      "label": "Gradient direction",
-      "default": "left",
-      "options": [
-        {
-          "value": "top",
-          "label": "Top"
-        },
-        {
-          "value": "bottom",
-          "label": "Bottom"
-        },
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        },
-        {
-          "value": "diagonal",
-          "label": "Diagonal"
-        }
-      ]
-    },
-    {
-      "type": "color",
-      "id": "color_background",
-      "label": "Background color",
-      "default": "#F8F4EF"
-    },
-    {
-      "type": "color",
-      "id": "color_text",
-      "label": "Text color",
-      "default": "#3B3028"
-    },
-    {
-      "type": "color",
-      "id": "color_heading",
-      "label": "Heading color",
-      "default": "#3B3028"
-    },
-    {
-      "type": "color",
-      "id": "color_accent",
-      "label": "Accent color",
-      "default": "#C9A46A"
-    },
-    {
-      "type": "range",
-      "id": "border_radius",
-      "label": "Border radius",
-      "min": 0,
-      "max": 40,
-      "step": 2,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "label": "Section width",
-      "default": "container",
-      "options": [
-        {
-          "value": "full",
-          "label": "Full width"
-        },
-        {
-          "value": "container",
-          "label": "Container"
-        },
-        {
-          "value": "narrow",
-          "label": "Narrow"
-        }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "label": "Content alignment",
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "content_position",
-      "label": "Content position",
-      "default": "middle",
-      "options": [
-        {
-          "value": "top",
-          "label": "Top"
-        },
-        {
-          "value": "middle",
-          "label": "Middle"
-        },
-        {
-          "value": "bottom",
-          "label": "Bottom"
-        }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "layout_direction",
-      "label": "Layout direction",
-      "default": "image-right",
-      "options": [
-        {
-          "value": "image-left",
-          "label": "Image left"
-        },
-        {
-          "value": "image-right",
-          "label": "Image right"
-        },
-        {
-          "value": "stacked",
-          "label": "Stacked"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding top",
-      "min": 0,
-      "max": 180,
-      "step": 4,
-      "unit": "px",
-      "default": 96
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding bottom",
-      "min": 0,
-      "max": 180,
-      "step": 4,
-      "unit": "px",
-      "default": 96
-    },
-    {
-      "type": "range",
-      "id": "margin_top",
-      "label": "Margin top",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "label": "Margin bottom",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "default": 0
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow label",
+      "default": "Outfit edit"
     },
     {
       "type": "text",
-      "id": "button_1_label",
-      "label": "Button 1 label"
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Build your look"
     },
     {
       "type": "url",
-      "id": "button_1_link",
-      "label": "Button 1 link"
-    },
-    {
-      "type": "select",
-      "id": "button_1_style",
-      "label": "Button 1 style",
-      "default": "primary",
-      "options": [
-        {
-          "value": "primary",
-          "label": "Primary"
-        },
-        {
-          "value": "secondary",
-          "label": "Secondary"
-        },
-        {
-          "value": "ghost",
-          "label": "Ghost"
-        },
-        {
-          "value": "link",
-          "label": "Link"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "id": "button_2_label",
-      "label": "Button 2 label"
-    },
-    {
-      "type": "url",
-      "id": "button_2_link",
-      "label": "Button 2 link"
-    },
-    {
-      "type": "select",
-      "id": "button_2_style",
-      "label": "Button 2 style",
-      "default": "secondary",
-      "options": [
-        {
-          "value": "primary",
-          "label": "Primary"
-        },
-        {
-          "value": "secondary",
-          "label": "Secondary"
-        },
-        {
-          "value": "ghost",
-          "label": "Ghost"
-        },
-        {
-          "value": "link",
-          "label": "Link"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "label": "Columns desktop",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 3
-    }
-  ],
-  "blocks": [
-    {
-      "type": "look-step",
-      "name": "Look step",
-      "settings": [
-        {
-          "type": "text",
-          "id": "eyebrow_text",
-          "label": "Eyebrow"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description",
-          "default": "<p></p>"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button label"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button link"
-        },
-        {
-          "type": "select",
-          "id": "button_style",
-          "label": "Button style",
-          "default": "link",
-          "options": [
-            {
-              "value": "primary",
-              "label": "Primary"
-            },
-            {
-              "value": "secondary",
-              "label": "Secondary"
-            },
-            {
-              "value": "ghost",
-              "label": "Ghost"
-            },
-            {
-              "value": "link",
-              "label": "Link"
-            }
-          ]
-        },
-        {
-          "type": "color",
-          "id": "color_background",
-          "label": "Card background",
-          "default": "#F8F4EF"
-        },
-        {
-          "type": "color",
-          "id": "color_text",
-          "label": "Card text",
-          "default": "#3B3028"
-        },
-        {
-          "type": "color",
-          "id": "color_accent",
-          "label": "Card accent",
-          "default": "#C9A46A"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_desktop",
-          "label": "Desktop image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_mobile",
-          "label": "Mobile image"
-        },
-        {
-          "type": "text",
-          "id": "image_alt",
-          "label": "Image alt text"
-        },
-        {
-          "type": "video",
-          "id": "video_desktop",
-          "label": "Desktop video"
-        },
-        {
-          "type": "video",
-          "id": "video_mobile",
-          "label": "Mobile video"
-        },
-        {
-          "type": "checkbox",
-          "id": "video_autoplay",
-          "label": "Autoplay video",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "video_loop",
-          "label": "Loop video",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "video_muted",
-          "label": "Mute video",
-          "default": true
-        },
-        {
-          "type": "select",
-          "id": "media_ratio",
-          "label": "Media ratio",
-          "default": "portrait",
-          "options": [
-            {
-              "value": "portrait",
-              "label": "Portrait"
-            },
-            {
-              "value": "landscape",
-              "label": "Landscape"
-            },
-            {
-              "value": "square",
-              "label": "Square"
-            },
-            {
-              "value": "wide",
-              "label": "Wide"
-            },
-            {
-              "value": "auto",
-              "label": "Auto"
-            }
-          ]
-        }
-      ]
+      "id": "button_url",
+      "label": "Button link"
     }
   ],
   "presets": [
@@ -684,13 +92,48 @@
       "name": "Laylada outfit edit",
       "blocks": [
         {
-          "type": "look-step"
+          "type": "look_step",
+          "settings": {
+            "title": "The abaya",
+            "description": "Begin with a refined modest base from the Dubai or Málaga collection."
+          }
         },
         {
-          "type": "look-step"
+          "type": "look_step",
+          "settings": {
+            "title": "The layer",
+            "description": "Add a lightweight kimono or open abaya for movement, coverage, and styling depth."
+          }
         },
         {
-          "type": "look-step"
+          "type": "look_step",
+          "settings": {
+            "title": "The finish",
+            "description": "Complete the look with accessories that make the outfit feel intentional and premium."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "look_step",
+      "name": "Look step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step description"
+        },
+        {
+          "type": "image_picker",
+          "id": "step_image",
+          "label": "Step image"
         }
       ]
     }
