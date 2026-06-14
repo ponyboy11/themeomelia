@@ -1,0 +1,33 @@
+{%- liquid
+  assign media_label = alt | default: media.image_alt | default: media.heading | default: ''
+  assign ratio = media.media_ratio | default: 'portrait'
+  assign autoplay = media.video_autoplay | default: true, allow_false: true
+  assign loop = media.video_loop | default: true, allow_false: true
+  assign muted = media.video_muted | default: true, allow_false: true
+  assign has_mobile_media = false
+  if media.mobile_video != blank or media.video_mobile != blank or media.mobile_image != blank or media.image_mobile != blank
+    assign has_mobile_media = true
+  endif
+  assign desktop_video = media.section_video | default: media.video_desktop
+  assign desktop_image = media.section_image | default: media.image_desktop
+  assign mobile_video = media.mobile_video | default: media.video_mobile
+  assign mobile_image = media.mobile_image | default: media.image_mobile
+  assign has_media = false
+  if desktop_video != blank or desktop_image != blank or mobile_video != blank or mobile_image != blank
+    assign has_media = true
+  endif
+-%}
+
+<div class="laylada-media laylada-media--{{ ratio | handle }}{% if has_media %} laylada-media--custom{% endif %}{% if has_mobile_media %} laylada-media--has-mobile{% endif %}"{% unless has_media %} aria-hidden="true"{% endunless %}>
+  {%- if mobile_video != blank -%}
+    {{ mobile_video | video_tag: autoplay: autoplay, loop: loop, muted: muted, controls: false, playsinline: true, image_size: '900x', aria_label: media_label, class: 'laylada-media__asset laylada-media__asset--mobile' }}
+  {%- elsif mobile_image != blank -%}
+    {{ mobile_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 767px) 100vw, 50vw', alt: media_label, class: 'laylada-media__asset laylada-media__asset--mobile' }}
+  {%- endif -%}
+
+  {%- if desktop_video != blank -%}
+    {{ desktop_video | video_tag: autoplay: autoplay, loop: loop, muted: muted, controls: false, playsinline: true, image_size: '1600x', aria_label: media_label, class: 'laylada-media__asset laylada-media__asset--desktop' }}
+  {%- elsif desktop_image != blank -%}
+    {{ desktop_image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '720, 960, 1200, 1600', sizes: '(min-width: 768px) 50vw, 100vw', alt: media_label, class: 'laylada-media__asset laylada-media__asset--desktop' }}
+  {%- endif -%}
+</div>

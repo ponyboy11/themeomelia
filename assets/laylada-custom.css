@@ -814,3 +814,162 @@ select,
     min-height: 280px;
   }
 }
+
+/* Customizer flexibility layer */
+.laylada-section {
+  background: var(--section-bg, var(--laylada-ivory));
+  color: var(--section-text, var(--laylada-espresso));
+  margin-block: var(--section-margin-top, 0) var(--section-margin-bottom, 0);
+}
+
+.laylada-section .laylada-container {
+  padding-top: var(--section-padding-top, 72px);
+  padding-bottom: var(--section-padding-bottom, 72px);
+}
+
+.laylada-section--full .laylada-container {
+  max-width: none;
+}
+
+.laylada-section--narrow .laylada-container {
+  max-width: 980px;
+}
+
+.laylada-hide-mobile {
+  display: none;
+}
+
+.laylada-align--center {
+  text-align: center;
+}
+
+.laylada-align--right {
+  text-align: right;
+}
+
+.laylada-section .laylada-heading {
+  color: var(--section-heading, var(--laylada-espresso));
+  font-size: var(--heading-size-mobile, 44px);
+}
+
+.laylada-section .laylada-subheading,
+.laylada-section .laylada-richtext,
+.laylada-section .laylada-card__text {
+  font-size: var(--body-size, 16px);
+}
+
+.laylada-section .laylada-eyebrow {
+  color: var(--section-accent, var(--laylada-camel));
+  font-size: var(--eyebrow-size, 11px);
+}
+
+.laylada-section .laylada-card,
+.laylada-section .laylada-feature,
+.laylada-section .laylada-trust-item {
+  background: var(--card-bg, rgba(248, 244, 239, 0.72));
+  color: var(--card-text, var(--section-text, var(--laylada-espresso)));
+}
+
+.laylada-section .laylada-media {
+  border-radius: var(--section-radius, 24px);
+}
+
+.laylada-section .laylada-media--landscape {
+  aspect-ratio: 16 / 9;
+}
+
+.laylada-section .laylada-media--square {
+  aspect-ratio: 1 / 1;
+}
+
+.laylada-section .laylada-media--wide {
+  aspect-ratio: 21 / 9;
+}
+
+.laylada-section .laylada-media--auto {
+  aspect-ratio: auto;
+}
+
+.laylada-section .laylada-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.laylada-align--center .laylada-actions {
+  justify-content: center;
+}
+
+.laylada-align--right .laylada-actions {
+  justify-content: flex-end;
+}
+
+.laylada-section .laylada-button--secondary,
+.laylada-section .laylada-button--ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--section-text, var(--laylada-espresso)) 22%, transparent);
+  color: var(--section-text, var(--laylada-espresso));
+}
+
+.laylada-section .laylada-button--link {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  color: var(--section-text, var(--laylada-espresso));
+  min-height: auto;
+  padding: 0 0 4px;
+}
+
+.laylada-section .laylada-split {
+  display: grid;
+  gap: clamp(28px, 5vw, 72px);
+}
+
+.laylada-section .laylada-feature-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.laylada-section .laylada-feature {
+  border: 1px solid rgba(59, 48, 40, 0.08);
+  border-radius: var(--section-radius, 24px);
+  padding: 22px;
+}
+
+@media (min-width: 768px) {
+  .laylada-section .laylada-heading {
+    font-size: var(--heading-size-desktop, 72px);
+  }
+
+  .laylada-hide-mobile {
+    display: block;
+  }
+
+  .laylada-hide-desktop {
+    display: none;
+  }
+
+  .laylada-section .laylada-split {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .laylada-layout--image-right .laylada-split__media {
+    order: 2;
+  }
+
+  .laylada-layout--stacked .laylada-split {
+    grid-template-columns: 1fr;
+  }
+
+  .laylada-position--top .laylada-split {
+    align-items: start;
+  }
+
+  .laylada-position--bottom .laylada-split {
+    align-items: end;
+  }
+}

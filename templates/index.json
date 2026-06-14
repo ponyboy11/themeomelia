@@ -3,79 +3,984 @@
     "laylada-hero": {
       "type": "laylada-hero",
       "settings": {
+        "eyebrow_text": "LAYLADA",
         "heading": "Where modest meets modern",
-        "subheading": "At Laylada, we bridge modest wear and modern Western fashion — creating styles that are inclusive, elegant, and wearable for every woman, every season."
-      }
+        "heading_tag": "h1",
+        "subheading": "At Laylada, we bridge modest wear and modern Western fashion — creating styles that are inclusive, elegant, and wearable for every woman, every season.",
+        "description": "<p>Warm resort minimalism inspired by Málaga light and Dubai evenings.</p>",
+        "heading_font_size_desktop": 110,
+        "heading_font_size_mobile": 58,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "full",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "button_1_label": "Shop new arrivals",
+        "button_1_link": "shopify://collections/new-arrivals",
+        "button_1_style": "primary",
+        "button_2_label": "Explore collections",
+        "button_2_link": "shopify://collections/all",
+        "button_2_style": "secondary"
+      },
+      "blocks": {
+        "laylada-hero-1": {
+          "type": "text-pill",
+          "settings": {
+            "text": "Dubai Collection"
+          }
+        },
+        "laylada-hero-2": {
+          "type": "text-pill",
+          "settings": {
+            "text": "Málaga Collection"
+          }
+        },
+        "laylada-hero-3": {
+          "type": "text-pill",
+          "settings": {
+            "text": "New Arrivals"
+          }
+        },
+        "laylada-hero-4": {
+          "type": "text-pill",
+          "settings": {
+            "text": "Best Sellers"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-hero-1",
+        "laylada-hero-2",
+        "laylada-hero-3",
+        "laylada-hero-4"
+      ]
     },
     "laylada-category-showcase": {
       "type": "laylada-category-showcase",
       "settings": {
+        "eyebrow_text": "Curated collections",
         "heading": "Shop the Laylada wardrobe",
-        "subheading": "Begin with the collection that matches her moment: Dubai polish, Málaga ease, newness, or proven best sellers."
+        "heading_tag": "h2",
+        "subheading": "Edit every card: text, image, video, button and link.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "columns_desktop": 4
+      },
+      "blocks": {
+        "laylada-category-showcase-1": {
+          "type": "category-card",
+          "settings": {
+            "eyebrow_text": "Dubai polish",
+            "heading": "Dubai Collection",
+            "description": "<p>Luxury abayas, kimonos, and elevated occasion pieces inspired by Dubai elegance.</p>",
+            "button_label": "Explore Dubai",
+            "button_link": "shopify://collections/dubai-collection",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-category-showcase-2": {
+          "type": "category-card",
+          "settings": {
+            "eyebrow_text": "Resort ease",
+            "heading": "Málaga Collection",
+            "description": "<p>Lightweight summer modestwear for holidays, cafés, city breaks, and resort moments.</p>",
+            "button_label": "Explore Málaga",
+            "button_link": "shopify://collections/malaga-collection",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-category-showcase-3": {
+          "type": "category-card",
+          "settings": {
+            "eyebrow_text": "Fresh edit",
+            "heading": "New Arrivals",
+            "description": "<p>Fresh seasonal pieces designed for modern modest wardrobes and effortless styling.</p>",
+            "button_label": "Shop new",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-category-showcase-4": {
+          "type": "category-card",
+          "settings": {
+            "eyebrow_text": "Client favourites",
+            "heading": "Best Sellers",
+            "description": "<p>Customer-loved edits that balance everyday wearability with premium elegance.</p>",
+            "button_label": "Shop best sellers",
+            "button_link": "shopify://collections/best-sellers",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-category-showcase-1",
+        "laylada-category-showcase-2",
+        "laylada-category-showcase-3",
+        "laylada-category-showcase-4"
+      ]
+    },
+    "laylada-editorial-lookbook": {
+      "type": "laylada-editorial-lookbook",
+      "settings": {
+        "eyebrow_text": "Editorial lookbook",
+        "heading": "Editorial collection stories",
+        "heading_tag": "h2",
+        "subheading": "Luxury modest looks inspired by Málaga resort light, Dubai evenings, and timeless feminine styling.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "columns_desktop": 3
+      },
+      "blocks": {
+        "laylada-editorial-lookbook-1": {
+          "type": "lookbook-card",
+          "settings": {
+            "eyebrow_text": "Resort story",
+            "heading": "Málaga mornings",
+            "description": "<p>Light chiffon, summer neutrals, and modest silhouettes for cafés and coastal city breaks.</p>",
+            "button_label": "Shop Málaga",
+            "button_link": "shopify://collections/malaga-collection",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-editorial-lookbook-2": {
+          "type": "lookbook-card",
+          "settings": {
+            "eyebrow_text": "Evening edit",
+            "heading": "Dubai evenings",
+            "description": "<p>Polished abayas, kimonos, and statement pieces for elevated dinners and occasions.</p>",
+            "button_label": "Shop Dubai",
+            "button_link": "shopify://collections/dubai-collection",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-editorial-lookbook-3": {
+          "type": "lookbook-card",
+          "settings": {
+            "eyebrow_text": "Daily luxury",
+            "heading": "Everyday elegance",
+            "description": "<p>Modern modest essentials designed to feel expressive, simple, and wearable through every season.</p>",
+            "button_label": "Shop new",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-editorial-lookbook-1",
+        "laylada-editorial-lookbook-2",
+        "laylada-editorial-lookbook-3"
+      ]
+    },
+    "laylada-best-sellers": {
+      "type": "laylada-best-sellers",
+      "settings": {
+        "eyebrow_text": "Best sellers",
+        "heading": "Most-loved Laylada pieces",
+        "heading_tag": "h2",
+        "subheading": "Choose the collection, product amount, typography, media and styling.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "collection": "best-sellers",
+        "products_to_show": 4
       }
     },
     "laylada-collection-spotlight": {
       "type": "laylada-collection-spotlight",
       "settings": {
+        "eyebrow_text": "Collection spotlight",
         "heading": "Summer ease, Dubai elegance",
-        "subheading": "Lead with the Málaga Collection for seasonal demand while the Dubai Collection elevates brand perception and average order value."
-      }
+        "heading_tag": "h2",
+        "subheading": "Control the collection spotlight text, media, links and feature cards.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "button_1_label": "Shop Málaga",
+        "button_1_link": "shopify://collections/malaga-collection",
+        "button_1_style": "primary",
+        "button_2_label": "Shop Dubai",
+        "button_2_link": "shopify://collections/dubai-collection",
+        "button_2_style": "secondary"
+      },
+      "blocks": {
+        "laylada-collection-spotlight-1": {
+          "type": "feature-card",
+          "settings": {
+            "eyebrow_text": "Summer focus",
+            "heading": "Málaga Collection",
+            "description": "<p>Lightweight chiffon summer fabrics, soft resort colours, and relaxed luxury for warm-weather dressing.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-collection-spotlight-2": {
+          "type": "feature-card",
+          "settings": {
+            "eyebrow_text": "Luxury focus",
+            "heading": "Dubai Collection",
+            "description": "<p>A premium halo collection built around statement abayas, refined kimonos, and elegant occasion wear.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-collection-spotlight-1",
+        "laylada-collection-spotlight-2"
+      ]
     },
     "laylada-brand-story": {
       "type": "laylada-brand-story",
       "settings": {
+        "eyebrow_text": "Our vision",
         "heading": "Modern modesty with a contemporary touch",
-        "subheading": "At Laylada, we bridge modest wear and modern Western fashion — creating styles that are inclusive, elegant, and wearable for every woman, every season."
-      }
+        "heading_tag": "h2",
+        "subheading": "Edit brand story, vision, values, media, links and typography.",
+        "description": "<p>At Laylada, clean silhouettes, modern details, and modest elements come together to create a balanced and refined style identity.</p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false
+      },
+      "blocks": {
+        "laylada-brand-story-1": {
+          "type": "value",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Inclusive",
+            "description": "<p>Styles designed for every woman, every season.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-brand-story-2": {
+          "type": "value",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Elegant",
+            "description": "<p>Soft luxury expressed through refined silhouettes.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-brand-story-3": {
+          "type": "value",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Wearable",
+            "description": "<p>Modest fashion that feels natural in daily life.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-brand-story-1",
+        "laylada-brand-story-2",
+        "laylada-brand-story-3"
+      ]
     },
     "laylada-lifestyle-banner": {
       "type": "laylada-lifestyle-banner",
       "settings": {
+        "eyebrow_text": "Lifestyle",
         "heading": "Effortless pieces for every elegant moment",
-        "subheading": "From family gatherings and travel days to resort evenings and city cafés, Laylada creates modest fashion that feels refined without effort."
-      }
+        "heading_tag": "h2",
+        "subheading": "Add lifestyle feature cards, media, buttons and text from the customizer.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "columns_desktop": 4
+      },
+      "blocks": {
+        "laylada-lifestyle-banner-1": {
+          "type": "feature",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Holiday outfits",
+            "description": "<p>Designed for resort days and warm evenings.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-lifestyle-banner-2": {
+          "type": "feature",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Premium cafés",
+            "description": "<p>Soft styling for curated everyday moments.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-lifestyle-banner-3": {
+          "type": "feature",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Resort evenings",
+            "description": "<p>Elegant layers with Dubai-inspired polish.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-lifestyle-banner-4": {
+          "type": "feature",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Occasion wear",
+            "description": "<p>Modest pieces for events and gatherings.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-lifestyle-banner-1",
+        "laylada-lifestyle-banner-2",
+        "laylada-lifestyle-banner-3",
+        "laylada-lifestyle-banner-4"
+      ]
     },
     "laylada-testimonials": {
       "type": "laylada-testimonials",
       "settings": {
-        "heading": "Made for confidence, elegance, and ease",
-        "subheading": "Use this section for real customer reviews after launch. For now, it frames the emotional transformation Laylada is built to deliver."
-      }
-    },
-    "laylada-trust-section": {
-      "type": "laylada-trust-section",
-      "settings": {
-        "heading": "Luxury feeling, clear purchase confidence",
-        "subheading": "Free EU Shipping · 30-Day Returns · Secure Checkout · Ethically Sourced"
-      }
-    },
-    "laylada-newsletter": {
-      "type": "laylada-newsletter",
-      "settings": {
-        "heading": "Join the Laylada Edit",
-        "subheading": "Be first to shop new arrivals and exclusive drops. Get 15% off your first order with code WELCOME15"
-      }
-    },
-    "laylada-best-sellers": {
-      "type": "laylada-best-sellers",
-      "settings": {
-        "heading": "Most-loved Laylada pieces",
-        "subheading": "A refined edit of customer favourites for modest wardrobes, resort evenings, and everyday elegance.",
-        "products_to_show": 4
-      }
-    },
-    "laylada-editorial-lookbook": {
-      "type": "laylada-editorial-lookbook",
-      "settings": {
-        "heading": "Editorial collection stories",
-        "subheading": "Luxury modest looks inspired by Málaga resort light, Dubai evenings, and timeless feminine styling."
-      }
+        "eyebrow_text": "Testimonials",
+        "heading": "Customer stories",
+        "heading_tag": "h2",
+        "subheading": "Add fully editable testimonials with optional customer images or videos.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "columns_desktop": 3
+      },
+      "blocks": {
+        "laylada-testimonials-1": {
+          "type": "testimonial",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Modest, polished, and easy to style.",
+            "description": "<p>A refined wardrobe feeling for women who want contemporary modest fashion without losing softness.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-testimonials-2": {
+          "type": "testimonial",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Elegant enough for dinner, relaxed enough for travel.",
+            "description": "<p>The right balance for European city breaks, Dubai-inspired evenings, and everyday confidence.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-testimonials-3": {
+          "type": "testimonial",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "A complete look, not just one piece.",
+            "description": "<p>Designed to help customers build outfits around abayas, kimonos, dresses, and seasonal layers.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-testimonials-1",
+        "laylada-testimonials-2",
+        "laylada-testimonials-3"
+      ]
     },
     "laylada-instagram-gallery": {
       "type": "laylada-instagram-gallery",
       "settings": {
-        "heading": "From Málaga light to Dubai nights",
-        "subheading": "An Instagram-inspired gallery for resort styling, outfit checks, café moments, and refined modest fashion."
+        "eyebrow_text": "Gallery",
+        "heading": "The Laylada mood",
+        "heading_tag": "h2",
+        "subheading": "Build an Instagram-inspired editable gallery with images, videos, text and links.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "columns_desktop": 4
+      },
+      "blocks": {
+        "laylada-instagram-gallery-1": {
+          "type": "gallery-item",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Málaga light",
+            "description": "<p>Upload your own lifestyle image or video.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-instagram-gallery-2": {
+          "type": "gallery-item",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Dubai nights",
+            "description": "<p>Upload your own lifestyle image or video.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-instagram-gallery-3": {
+          "type": "gallery-item",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Resort styling",
+            "description": "<p>Upload your own lifestyle image or video.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        },
+        "laylada-instagram-gallery-4": {
+          "type": "gallery-item",
+          "settings": {
+            "eyebrow_text": "",
+            "heading": "Everyday elegance",
+            "description": "<p>Upload your own lifestyle image or video.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "media_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-instagram-gallery-1",
+        "laylada-instagram-gallery-2",
+        "laylada-instagram-gallery-3",
+        "laylada-instagram-gallery-4"
+      ]
+    },
+    "laylada-trust-section": {
+      "type": "laylada-trust-section",
+      "settings": {
+        "eyebrow_text": "Shop with confidence",
+        "heading": "Luxury feeling, clear purchase confidence",
+        "heading_tag": "h2",
+        "subheading": "Edit every trust badge, icon, link, color and spacing.",
+        "description": "<p></p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#F8F4EF",
+        "color_text": "#3B3028",
+        "color_heading": "#3B3028",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "columns_desktop": 4
+      },
+      "blocks": {
+        "laylada-trust-section-1": {
+          "type": "trust-badge",
+          "settings": {
+            "text": "Free EU Shipping",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A"
+          }
+        },
+        "laylada-trust-section-2": {
+          "type": "trust-badge",
+          "settings": {
+            "text": "30-Day Returns",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A"
+          }
+        },
+        "laylada-trust-section-3": {
+          "type": "trust-badge",
+          "settings": {
+            "text": "Secure Checkout",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A"
+          }
+        },
+        "laylada-trust-section-4": {
+          "type": "trust-badge",
+          "settings": {
+            "text": "Ethically Sourced",
+            "color_background": "#F8F4EF",
+            "color_text": "#3B3028",
+            "color_accent": "#C9A46A"
+          }
+        }
+      },
+      "block_order": [
+        "laylada-trust-section-1",
+        "laylada-trust-section-2",
+        "laylada-trust-section-3",
+        "laylada-trust-section-4"
+      ]
+    },
+    "laylada-newsletter": {
+      "type": "laylada-newsletter",
+      "settings": {
+        "eyebrow_text": "Private access",
+        "heading": "Join the Laylada Edit",
+        "heading_tag": "h2",
+        "subheading": "Edit headline, form text, button, note, media and styling.",
+        "description": "<p>Be first to shop new arrivals and exclusive drops.</p>",
+        "heading_font_size_desktop": 72,
+        "heading_font_size_mobile": 44,
+        "body_font_size": 16,
+        "eyebrow_font_size": 11,
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "media_ratio": "portrait",
+        "overlay_color": "#3B3028",
+        "overlay_opacity": 35,
+        "gradient_enable": true,
+        "gradient_direction": "left",
+        "color_background": "#3B3028",
+        "color_text": "#F8F4EF",
+        "color_heading": "#F8F4EF",
+        "color_accent": "#C9A46A",
+        "border_radius": 24,
+        "section_width": "container",
+        "content_alignment": "left",
+        "content_position": "middle",
+        "layout_direction": "image-right",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_section": false,
+        "email_placeholder": "Email address",
+        "form_button_label": "Join now",
+        "form_note": "<p>Use WELCOME15 for 15% off your first order.</p>",
+        "button_1_style": "primary"
       }
     }
   },
