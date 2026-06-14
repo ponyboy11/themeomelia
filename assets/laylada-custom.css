@@ -111,6 +111,7 @@
     radial-gradient(circle at 12% 80%, rgba(221, 183, 183, 0.35), transparent 32%),
     linear-gradient(135deg, var(--laylada-ivory), var(--laylada-sand) 50%, var(--laylada-sage));
   min-height: 260px;
+  overflow: hidden;
   position: relative;
 }
 
@@ -122,6 +123,31 @@
   position: absolute;
   right: 16px;
   top: 16px;
+}
+
+.laylada-section .laylada-section-media {
+  margin-bottom: 28px;
+}
+
+.laylada-section .laylada-media__asset {
+  display: block;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.laylada-section .laylada-media__asset--mobile {
+  display: none;
+}
+
+.laylada-section .laylada-media--has-mobile .laylada-media__asset--mobile {
+  display: block;
+}
+
+.laylada-section .laylada-media--has-mobile .laylada-media__asset--desktop {
+  display: none;
 }
 
 .laylada-section .laylada-button {
@@ -366,5 +392,17 @@
 
   .laylada-section .laylada-trust-bar {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .laylada-section .laylada-section-media {
+    margin-bottom: 38px;
+  }
+
+  .laylada-section .laylada-media--has-mobile .laylada-media__asset--mobile {
+    display: none;
+  }
+
+  .laylada-section .laylada-media--has-mobile .laylada-media__asset--desktop {
+    display: block;
   }
 }
