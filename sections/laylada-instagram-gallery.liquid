@@ -1,0 +1,135 @@
+{%- liquid
+  assign has_mobile_media = false
+  if section.settings.mobile_video != blank or section.settings.mobile_image != blank
+    assign has_mobile_media = true
+  endif
+
+  assign has_custom_media = false
+  if has_mobile_media or section.settings.section_video != blank or section.settings.section_image != blank
+    assign has_custom_media = true
+  endif
+-%}
+
+<section class="laylada-section">
+  <div class="laylada-container">
+    <div class="laylada-header">
+      <div>
+        <p class="laylada-eyebrow">The Laylada mood</p>
+        <h2 class="laylada-heading">{{ section.settings.heading }}</h2>
+      </div>
+      <p class="laylada-subheading">{{ section.settings.subheading }}</p>
+    </div>
+    {%- if has_custom_media -%}
+      <div class="laylada-section-media">
+        <div class="laylada-media{% if has_custom_media %} laylada-media--custom{% endif %}{% if has_mobile_media %} laylada-media--has-mobile{% endif %}">
+          {%- if section.settings.mobile_video != blank -%}
+            {{ section.settings.mobile_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '900x', class: 'laylada-media__asset laylada-media__asset--mobile' }}
+          {%- elsif section.settings.mobile_image != blank -%}
+            {{ section.settings.mobile_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 767px) 100vw, 50vw', alt: section.settings.heading, class: 'laylada-media__asset laylada-media__asset--mobile' }}
+          {%- endif -%}
+
+          {%- if section.settings.section_video != blank -%}
+            {{ section.settings.section_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '1600x', class: 'laylada-media__asset laylada-media__asset--desktop' }}
+          {%- elsif section.settings.section_image != blank -%}
+            {{ section.settings.section_image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '720, 960, 1200, 1600', sizes: '(min-width: 768px) 50vw, 100vw', alt: section.settings.heading, class: 'laylada-media__asset laylada-media__asset--desktop' }}
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="laylada-instagram-grid">
+      {%- for block in section.blocks -%}
+        <a class="laylada-instagram-tile" href="{{ block.settings.link | default: routes.root_url }}" {{ block.shopify_attributes }}>
+          <div class="laylada-media{% if block.settings.image != blank %} laylada-media--custom{% endif %}">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(min-width: 768px) 25vw, 50vw', alt: block.settings.alt_text, class: 'laylada-media__asset laylada-media__asset--desktop' }}
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Laylada Instagram edit",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From Málaga light to Dubai nights"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "An Instagram-inspired gallery for resort styling, outfit checks, café moments, and refined modest fashion."
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "video",
+      "id": "section_video",
+      "label": "Desktop video"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile video"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_item",
+      "name": "Gallery item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text",
+          "default": "Laylada editorial lifestyle image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laylada Instagram edit",
+      "blocks": [
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

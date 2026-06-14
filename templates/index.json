@@ -55,15 +55,40 @@
         "heading": "Join the Laylada Edit",
         "subheading": "Be first to shop new arrivals and exclusive drops. Get 15% off your first order with code WELCOME15"
       }
+    },
+    "laylada-best-sellers": {
+      "type": "laylada-best-sellers",
+      "settings": {
+        "heading": "Most-loved Laylada pieces",
+        "subheading": "A refined edit of customer favourites for modest wardrobes, resort evenings, and everyday elegance.",
+        "products_to_show": 4
+      }
+    },
+    "laylada-editorial-lookbook": {
+      "type": "laylada-editorial-lookbook",
+      "settings": {
+        "heading": "Editorial collection stories",
+        "subheading": "Luxury modest looks inspired by Málaga resort light, Dubai evenings, and timeless feminine styling."
+      }
+    },
+    "laylada-instagram-gallery": {
+      "type": "laylada-instagram-gallery",
+      "settings": {
+        "heading": "From Málaga light to Dubai nights",
+        "subheading": "An Instagram-inspired gallery for resort styling, outfit checks, café moments, and refined modest fashion."
+      }
     }
   },
   "order": [
     "laylada-hero",
     "laylada-category-showcase",
+    "laylada-editorial-lookbook",
+    "laylada-best-sellers",
     "laylada-collection-spotlight",
     "laylada-brand-story",
     "laylada-lifestyle-banner",
     "laylada-testimonials",
+    "laylada-instagram-gallery",
     "laylada-trust-section",
     "laylada-newsletter"
   ]
